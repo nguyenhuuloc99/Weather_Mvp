@@ -1,6 +1,7 @@
 package com.example.kotlin_weather.View;
 
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,8 +16,9 @@ public class MainActivity extends AppCompatActivity implements PresenterInterfac
     public static String LATITUDE = "21";
     public static String LONGTITUDE = "105";
     public static String APP_ID = "2b0f1c2e6a3deab6d7f78949d22deb33";
-    WeatherPresenter presenter;
-    TextView textTemp, textLocation, textTempMin, textTempMax, textFeelLike;
+    private WeatherPresenter presenter;
+    private TextView textTemp, textLocation, textTempMin, textTempMax, textFeelLike;
+    private ImageView imagWeatherIcon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,13 +36,12 @@ public class MainActivity extends AppCompatActivity implements PresenterInterfac
         textTempMin = findViewById(R.id.textTempMin);
         textTempMax = findViewById(R.id.textTempMax);
         textFeelLike = findViewById(R.id.textFeelLike);
+        imagWeatherIcon = findViewById(R.id.imagWeatherIcon);
     }
 
     @Override
     public void getCurrent(WeatherResponse weatherReponse) {
-        for (int i = 0; i < weatherReponse.getWeather().size(); i++) {
-            String icon = weatherReponse.getWeather().get(i).getIcon();
-            Picasso.get().load("http://openweathermap.org/img/wn/" + icon + ".png");
-        }
+        String icon = weatherReponse.getWeather().get(0).getIcon();
+        Picasso.get().load("http://openweathermap.org/img/wn/" + icon + ".png").into(imagWeatherIcon);
     }
 }

@@ -29,6 +29,7 @@
         app:layout_constraintTop_toBottomOf="@id/home" />
 
     <ImageView
+        android:id="@+id/imagWeatherIcon"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginLeft="30dp"
