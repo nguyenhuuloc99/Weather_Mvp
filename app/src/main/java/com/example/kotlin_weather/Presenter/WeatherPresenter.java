@@ -12,18 +12,18 @@ public class WeatherPresenter {
 
     private PresenterInterface mPresenter;
     private WeatherResponse weatherResponse;
+
     public WeatherPresenter(PresenterInterface Presenter) {
-        this.mPresenter=Presenter;
+        this.mPresenter = Presenter;
     }
-    public WeatherResponse getWeatherResponse(String latidue,String longtidue,String app_id)
-    {
-        WeatherService weatherApi= RetrofitClient.getIntance().create(WeatherService.class);
-        weatherApi.getCurrentWeatherData(latidue,longtidue,app_id).enqueue(new Callback<WeatherResponse>() {
+
+    public WeatherResponse getWeatherResponse(String latidue, String longtidue, String app_id) {
+        WeatherService weatherApi = RetrofitClient.getIntance().create(WeatherService.class);
+        weatherApi.getCurrentWeatherData(latidue, longtidue, app_id).enqueue(new Callback<WeatherResponse>() {
             @Override
             public void onResponse(Call<WeatherResponse> call, Response<WeatherResponse> response) {
-                if (response.isSuccessful())
-                {
-                    weatherResponse=response.body();
+                if (response.isSuccessful()) {
+                    weatherResponse = response.body();
                     mPresenter.getCurrent(weatherResponse);
                 }
 

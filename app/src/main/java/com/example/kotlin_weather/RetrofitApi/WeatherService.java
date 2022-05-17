@@ -2,7 +2,6 @@ package com.example.kotlin_weather.RetrofitApi;
 
 import com.example.kotlin_weather.Model.WeatherResponse;
 
-
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
