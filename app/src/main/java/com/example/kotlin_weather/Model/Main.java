@@ -69,7 +69,7 @@ public class Main {
     }
 
     public float getFeels_like() {
-        return Integer.parseInt(String.valueOf(temp_max));
+        return feels_like;
     }
 
     public void setFeels_like(float feels_like) {

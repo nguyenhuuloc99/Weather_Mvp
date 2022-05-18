@@ -10,9 +10,9 @@ public class RetrofitClient {
     public static Retrofit getIntance() {
         if (retrofit == null) {
             retrofit = new Retrofit.Builder()
-                .baseUrl(URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
+                    .baseUrl(URL)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
         }
         return retrofit;
     }
