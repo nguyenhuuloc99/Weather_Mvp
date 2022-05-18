@@ -10,5 +10,8 @@ public interface MainContract {
         void getInFailure(String err);
     }
 
-    void getCurrent(String latitude, String longtitude, String app_id);
+    interface Presenter {
+        void getCurrent(String latitude, String longtitude, String app_id);
+    }
+
 }
