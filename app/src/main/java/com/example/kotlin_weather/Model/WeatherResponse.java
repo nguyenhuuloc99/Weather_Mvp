@@ -1,118 +1,34 @@
 package com.example.kotlin_weather.Model;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 
 public class WeatherResponse {
-    @SerializedName("coord")
-    public Coord coord;
-    @SerializedName("sys")
-    public Sys sys;
-    @SerializedName("weather")
-    public ArrayList<Weather> weather = new ArrayList();
-    @SerializedName("main")
-    public Main main;
-    @SerializedName("wind")
-    public Wind wind;
-    @SerializedName("rain")
-    public Rain rain;
-    @SerializedName("clouds")
-    public Clouds clouds;
-    @SerializedName("dt")
-    public float dt;
-    @SerializedName("id")
-    public int id;
-    @SerializedName("name")
-    public String name;
     @SerializedName("cod")
-    public float cod;
+    @Expose
+    private String cod;
+    @SerializedName("list")
+    @Expose
+    private ArrayList<List> list = null;
 
-    public Coord getCoord() {
-        return coord;
+
+    public ArrayList<List> getList() {
+        return list;
     }
 
-    public void setCoord(Coord coord) {
-        this.coord = coord;
+    public void setList(ArrayList<List> list) {
+        this.list = list;
     }
 
-    public Sys getSys() {
-        return sys;
-    }
-
-    public void setSys(Sys sys) {
-        this.sys = sys;
-    }
-
-    public ArrayList<Weather> getWeather() {
-        return weather;
-    }
-
-    public void setWeather(ArrayList weather) {
-        this.weather = weather;
-    }
-
-    public Main getMain() {
-        return main;
-    }
-
-    public void setMain(Main main) {
-        this.main = main;
-    }
-
-    public Wind getWind() {
-        return wind;
-    }
-
-    public void setWind(Wind wind) {
-        this.wind = wind;
-    }
-
-    public Rain getRain() {
-        return rain;
-    }
-
-    public void setRain(Rain rain) {
-        this.rain = rain;
-    }
-
-    public Clouds getClouds() {
-        return clouds;
-    }
-
-    public void setClouds(Clouds clouds) {
-        this.clouds = clouds;
-    }
-
-    public float getDt() {
-        return dt;
-    }
-
-    public void setDt(float dt) {
-        this.dt = dt;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public float getCod() {
+    public String getCod() {
         return cod;
     }
 
-    public void setCod(float cod) {
+    public void setCod(String cod) {
         this.cod = cod;
     }
+
+
 }

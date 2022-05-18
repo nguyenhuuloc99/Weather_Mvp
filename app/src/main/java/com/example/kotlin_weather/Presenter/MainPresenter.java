@@ -18,7 +18,6 @@ public class MainPresenter implements MainContract.Presenter {
 
     private MainContract.View mView;
     private WeatherResponse weatherResponse;
-    Context context;
 
     public MainPresenter(MainContract.View mView) {
         this.mView = mView;
