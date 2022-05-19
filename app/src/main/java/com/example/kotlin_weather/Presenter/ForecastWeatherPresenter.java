@@ -10,18 +10,18 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Main2Presenter implements Main2Contract.Presenter {
-    private Main2Contract.View view;
+public class ForecastWeatherPresenter implements ForecastWeatherContract.Presenter {
+    private ForecastWeatherContract.View view;
     private WeatherResponse weatherResponse;
 
-    public Main2Presenter(Main2Contract.View view) {
+    public ForecastWeatherPresenter(ForecastWeatherContract.View view) {
         this.view = view;
     }
 
     @Override
-    public void getFiveDay(String latitude, String longtitude, String app_id) {
+    public void getForecastWeatherData(String latitude, String longtitude, String app_id) {
         WeatherService weatherApi = RetrofitClient.getIntance().create(WeatherService.class);
-        weatherApi.getWeatherData(latitude, longtitude, app_id).enqueue(new Callback<WeatherResponse>() {
+        weatherApi.getWeatherForecastData(latitude, longtitude, app_id).enqueue(new Callback<WeatherResponse>() {
             @Override
             public void onResponse(@NonNull Call<WeatherResponse> call, @NonNull Response<WeatherResponse> response) {
                 if (response.isSuccessful()) {

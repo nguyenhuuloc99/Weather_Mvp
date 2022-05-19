@@ -1,5 +1,6 @@
 package com.example.kotlin_weather.Adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,11 +20,11 @@ import java.util.ArrayList;
 import java.util.TimeZone;
 
 public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.ViewHolder> {
-    ArrayList<List> list_weather;
+    ArrayList<List> listWeather ;
     Context context;
 
     public WeatherAdapter(ArrayList<List> list_weather, Context context) {
-        this.list_weather = list_weather;
+        this.listWeather = list_weather;
         this.context = context;
     }
 
@@ -36,9 +37,9 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        List list = list_weather.get(position);
+        List list = listWeather.get(position);
         //TODO: them logic convert UTC -> date.
-        DateFormat formatterUTC = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        @SuppressLint("SimpleDateFormat") DateFormat formatterUTC = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
         formatterUTC.setTimeZone(TimeZone.getTimeZone("UTC")); // UTC timezone
         holder.text_Time.setText(formatterUTC.format(list.getDt()));
         holder.text_Temp.setText(String.valueOf(list.getMain().getTemp()));
@@ -48,11 +49,7 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.ViewHold
 
     @Override
     public int getItemCount() {
-        if (list_weather == null) {
-            return 0;
-        } else
-
-            return list_weather.size();
+        return listWeather.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

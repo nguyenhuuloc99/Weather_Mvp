@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Kotlin_weather">
         <activity
-            android:name=".View.MainActivity2"
+            android:name=".View.ForecastWeatherActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
