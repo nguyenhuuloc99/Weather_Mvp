@@ -1,10 +1,10 @@
-package com.example.weather.Presenter;
+package com.example.kotlin_weather.Presenter;
 
 import androidx.annotation.NonNull;
 
-import com.example.weather.Model.WeatherResponse;
-import com.example.weather.RetrofitApi.RetrofitClient;
-import com.example.weather.RetrofitApi.WeatherService;
+import com.example.kotlin_weather.Model.WeatherResponse;
+import com.example.kotlin_weather.RetrofitApi.RetrofitClient;
+import com.example.kotlin_weather.RetrofitApi.WeatherService;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -18,8 +18,9 @@ public class ForecastWeatherPresenter implements ForecastWeatherContract.Present
         this.view = view;
     }
 
+
     @Override
-    public void getForecastWeatherData(String latitude, String longtitude, String app_id) {
+    public void getWeatherForecastData(String latitude, String longtitude, String app_id) {
         WeatherService weatherApi = RetrofitClient.getIntance().create(WeatherService.class);
         weatherApi.getWeatherForecastData(latitude, longtitude, app_id).enqueue(new Callback<WeatherResponse>() {
             @Override

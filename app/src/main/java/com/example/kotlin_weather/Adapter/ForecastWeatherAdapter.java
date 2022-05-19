@@ -1,17 +1,17 @@
-package com.example.weather.Adapter;
+package com.example.kotlin_weather.Adapter;
 
 import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.weather.Model.List;
-import com.example.weather.R;
+
+import com.example.kotlin_weather.Model.List;
+import com.example.kotlin_weather.R;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.TimeZone;
 
 public class ForecastWeatherAdapter extends RecyclerView.Adapter<ForecastWeatherAdapter.ViewHolder> {
-    private ArrayList<List> listWeather = new ArrayList<>();
+    private ArrayList<List> listWeather ;
 
     public ForecastWeatherAdapter(ArrayList<List> listWeather) {
         this.listWeather = listWeather;
@@ -34,7 +34,7 @@ public class ForecastWeatherAdapter extends RecyclerView.Adapter<ForecastWeather
 
     @SuppressLint("SimpleDateFormat")
     @Override
-    public void onBindViewHolder(@NonNull ForecastWeatherAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         List list = listWeather.get(position);
         DateFormat formatterUTC = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
         formatterUTC.setTimeZone(TimeZone.getTimeZone("UTC")); // UTC timezone

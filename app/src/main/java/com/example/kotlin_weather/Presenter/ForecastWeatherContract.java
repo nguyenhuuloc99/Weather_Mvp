@@ -1,6 +1,6 @@
-package com.example.weather.Presenter;
+package com.example.kotlin_weather.Presenter;
 
-import com.example.weather.Model.WeatherResponse;
+import com.example.kotlin_weather.Model.WeatherResponse;
 
 public interface ForecastWeatherContract {
     interface View {
@@ -10,7 +10,7 @@ public interface ForecastWeatherContract {
     }
 
     interface Presenter {
-        void getForecastWeatherData(String latitude, String longtitude, String app_id);
+        void getWeatherForecastData(String latitude, String longtitude, String app_id);
 
     }
 

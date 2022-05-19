@@ -1,4 +1,4 @@
-package com.example.weather.View;
+package com.example.kotlin_weather.View;
 
 import android.os.Bundle;
 import android.widget.Toast;
@@ -7,12 +7,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.weather.Adapter.ForecastWeatherAdapter;
-import com.example.weather.Model.List;
-import com.example.weather.Model.WeatherResponse;
-import com.example.weather.Presenter.ForecastWeatherContract;
-import com.example.weather.Presenter.ForecastWeatherPresenter;
-import com.example.weather.R;
+import com.example.kotlin_weather.Adapter.ForecastWeatherAdapter;
+import com.example.kotlin_weather.Model.List;
+import com.example.kotlin_weather.Model.WeatherResponse;
+import com.example.kotlin_weather.Presenter.ForecastWeatherContract;
+import com.example.kotlin_weather.Presenter.ForecastWeatherPresenter;
+import com.example.kotlin_weather.R;
+
 
 import java.util.ArrayList;
 
@@ -28,10 +29,10 @@ public class ForecastWeatherActivity extends AppCompatActivity implements Foreca
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_forecastweather);
         recyerview = findViewById(R.id.recyerview);
         forecastWeatherPresenter = new ForecastWeatherPresenter(this);
-        forecastWeatherPresenter.getForecastWeatherData(LATITUDE, LONGTITUDE, APP_ID);
+        forecastWeatherPresenter.getWeatherForecastData(LATITUDE, LONGTITUDE, APP_ID);
         recyerview.setLayoutManager(new LinearLayoutManager(this));
         recyerview.setHasFixedSize(true);
     }
