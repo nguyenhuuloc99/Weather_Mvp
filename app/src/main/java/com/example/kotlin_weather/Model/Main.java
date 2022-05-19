@@ -61,7 +61,7 @@ public class Main {
     }
 
     public float getTemp_max() {
-        return Integer.parseInt(String.valueOf(temp_max));
+        return temp_max;
     }
 
     public void setTemp_max(float temp_max) {
