@@ -1,9 +1,5 @@
 package com.example.kotlin_weather.Presenter;
 
-import android.content.Context;
-import android.util.Log;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 
 import com.example.kotlin_weather.Model.WeatherResponse;
@@ -14,35 +10,33 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainPresenter implements MainContract.Presenter {
-    private MainContract.View mView;
+public class ForecastWeatherPresenter implements ForecastWeatherContract.Presenter {
+    private ForecastWeatherContract.View view;
     private WeatherResponse weatherResponse;
 
-    public MainPresenter(MainContract.View mView) {
-        this.mView = mView;
+    public ForecastWeatherPresenter(ForecastWeatherContract.View view) {
+        this.view = view;
     }
 
     @Override
-    public void getCurrent(String latitude, String longtitude, String app_id) {
+    public void getForecastWeatherData(String latitude, String longtitude, String app_id) {
         WeatherService weatherApi = RetrofitClient.getIntance().create(WeatherService.class);
-        weatherApi.getCurrentWeatherData(latitude, longtitude, app_id).enqueue(new Callback<WeatherResponse>() {
+        weatherApi.getWeatherForecastData(latitude, longtitude, app_id).enqueue(new Callback<WeatherResponse>() {
             @Override
             public void onResponse(@NonNull Call<WeatherResponse> call, @NonNull Response<WeatherResponse> response) {
                 if (response.isSuccessful()) {
                     weatherResponse = response.body();
-                    mView.getInSuccess(weatherResponse);
+                    view.getInSuccess(weatherResponse);
                 } else {
-                    mView.getInFailure("Failurre");
+                    view.getInFailure("Failurre");
                 }
 
             }
 
             @Override
             public void onFailure(@NonNull Call<WeatherResponse> call, @NonNull Throwable t) {
-                mView.getInFailure(t.getMessage());
+                view.getInFailure(t.getMessage());
             }
         });
     }
-
-
 }
