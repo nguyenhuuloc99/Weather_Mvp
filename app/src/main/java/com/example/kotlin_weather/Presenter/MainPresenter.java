@@ -1,9 +1,5 @@
 package com.example.kotlin_weather.Presenter;
 
-import android.content.Context;
-import android.util.Log;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 
 import com.example.kotlin_weather.Model.WeatherResponse;
@@ -18,7 +14,6 @@ public class MainPresenter implements MainContract.Presenter {
 
     private MainContract.View mView;
     private WeatherResponse weatherResponse;
-    Context context;
 
     public MainPresenter(MainContract.View mView) {
         this.mView = mView;
