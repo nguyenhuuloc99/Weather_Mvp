@@ -3,6 +3,8 @@ package com.example.kotlin_weather.Model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
+
 public class WeatherResponse {
 
     @SerializedName("cod")
@@ -16,7 +18,7 @@ public class WeatherResponse {
     private Integer cnt;
     @SerializedName("list")
     @Expose
-    private java.util.List<List> list = null;
+    private ArrayList<Weather> listWeather = null;
 
     public String getCod() {
         return cod;
@@ -42,12 +44,9 @@ public class WeatherResponse {
         this.cnt = cnt;
     }
 
-    public java.util.List<List> getList() {
-        return list;
+    public ArrayList<Weather> getList() {
+        return listWeather;
     }
 
-    public void setList(java.util.List<List> list) {
-        this.list = list;
-    }
 
 }
