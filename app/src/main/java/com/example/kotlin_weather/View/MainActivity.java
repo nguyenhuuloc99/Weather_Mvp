@@ -43,13 +43,13 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     @Override
     public void getInSuccess(WeatherResponse weatherResponse) {
-        textLocation.setText(weatherResponse.sys.getCountry());
+       /* textLocation.setText(weatherResponse.sys.getCountry());
         textFeelLike.setText(String.valueOf(weatherResponse.getMain().getFeels_like()));
         textTemp.setText(String.valueOf(weatherResponse.getMain().temp));
         textTempMax.setText(String.valueOf(weatherResponse.getMain().temp_max));
         textTempMin.setText(String.valueOf(weatherResponse.getMain().temp_min));
         String icon = weatherResponse.getWeather().get(0).getIcon();
-        Picasso.with(getApplicationContext()).load("http://openweathermap.org/img/wn/" + icon + ".png").into(imagWeatherIcon);
+        Picasso.with(getApplicationContext()).load("http://openweathermap.org/img/wn/" + icon + ".png").into(imagWeatherIcon);*/
     }
 
     @Override

@@ -1,46 +1,29 @@
 package com.example.kotlin_weather.Model;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Weather {
-    @SerializedName("id")
-    public int id;
+
+    @SerializedName("dt")
+    @Expose
+    private Integer dateTime;
     @SerializedName("main")
-    public String main;
-    @SerializedName("description")
-    public String description;
-    @SerializedName("icon")
-    public String icon;
-
-    public int getId() {
-        return id;
+    @Expose
+    private Main main;
+    public Integer getDt() {
+        return dateTime;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setDt(Integer dt) {
+        this.dateTime = dt;
     }
 
-    public String getMain() {
+    public Main getMain() {
         return main;
     }
 
-    public void setMain(String main) {
+    public void setMain(Main main) {
         this.main = main;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getIcon() {
-        return icon;
-    }
-
-    public void setIcon(String icon) {
-        this.icon = icon;
     }
 }
